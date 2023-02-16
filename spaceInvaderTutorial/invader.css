@@ -8,17 +8,24 @@
 .grid {
     margin: auto;
     border: solid 2px white;
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .grid div {
-    width: 30px;
-    height: 30px;
-    border: dotted .1px white;
+    width: 20px;
+    height: 20px;
+}
 
+.invader {
+    background-color: purple;
+    border-radius: 10px;
+}
+
+.shooter {
+    background-color: red;
 }
 
 body {
