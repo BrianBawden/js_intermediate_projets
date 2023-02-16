@@ -5,6 +5,13 @@
     font-size: 4em;
 }
 
+#gameBoard {
+    margin: auto;
+    border: solid 2px white;
+    width: 400px;
+    height: 400px;
+}
+
 body {
     background-color:black;
 }
