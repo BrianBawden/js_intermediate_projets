@@ -1,4 +1,4 @@
-#title {
+.title {
     text-align: center;
     color: lightblue;
     text-decoration: underline;
@@ -30,4 +30,6 @@
 
 body {
     background-color:black;
+    text-align: center;
 }
+

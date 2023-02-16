@@ -2,6 +2,9 @@
 const grid = document.querySelector(".grid");
 let currentShooterIndex = 202;
 let width = 15;
+let direction = 1;
+let invadersId;
+let goingRight = true;
 
 for (let i = 0; i < 225; i++){
     const square = document.createElement("div")
@@ -20,7 +23,7 @@ function draw() {
     for(let i = 0; i < alienInvaders.length; i++){
         squares[alienInvaders[i]].classList.add("invader")
     }
-}
+    }
 
 draw()
 
@@ -28,7 +31,7 @@ function remove() {
     for(let i = 0; i < alienInvaders.length; i++){
         squares[alienInvaders[i]].classList.remove("invader")
     }
-}
+    }
 
 squares[currentShooterIndex].classList.add("shooter")
 
@@ -43,7 +46,7 @@ function moveShooter(e){
             break
     }
     squares[currentShooterIndex].classList.add("shooter")
-}
+    }
 
 document.addEventListener("keydown", moveShooter)
 
@@ -53,10 +56,37 @@ function moveInvaders () {
 
     remove()
 
-    for (let i = 0; i < alienInvaders.length; i++){
-        alienInvaders[i] += 1
+    if (rightEdge && goingRight) {
+        for (let i = 0; i < alienInvaders.length; i++){
+            alienInvaders[i] += width +1
+            direction = -1
+            goingRight = false
+        }
+    } 
+    else if (leftEdge && !goingRight) {
+        for (let i = 0; i < alienInvaders.length; i++){
+            alienInvaders[i] += width -1
+            direction = 1
+            goingRight = true
+        }
     }
+    for (let i = 0; i < alienInvaders.length; i++){
+        alienInvaders[i] += direction
+    }
+    
     draw()
-}
 
-setInterval(moveInvaders, 500);
+    if (squares[currentShooterIndex].classList.contains("invader", "shooter")) {
+        console.log('Game Over')
+        clearInterval(invadersId)
+        window.location = 'http://127.0.0.1:5500/spaceInvaderTutorial/gameover.html'
+    }
+
+    for (let i = 0; i < alienInvaders.length; i++){
+        if(alienInvaders[i] > squares.length + width){
+            window.location = 'http://127.0.0.1:5500/spaceInvaderTutorial/gameover.html'
+        }
+    }
+
+}
+invadersId = setInterval(moveInvaders, 50);
