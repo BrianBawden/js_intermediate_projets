@@ -1,0 +1,24 @@
+#title {
+    text-align: center;
+    color: lightblue;
+    text-decoration: underline;
+    font-size: 4em;
+}
+
+.gameBoard {
+    margin: auto;
+    border: solid 2px white;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gameBoard div {
+    width: 20px;
+    height: 20px;
+}
+
+body {
+    background-color:black;
+}
