@@ -25,11 +25,14 @@
 }
 
 .shooter {
-    background-color: red;
+    background-color: green;
 }
 
 .laser {
     background-color: orange;
+}
+.class {
+    background-color: red;
 }
 
 body {
